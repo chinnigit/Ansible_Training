@@ -1,0 +1,5 @@
+---
+# handlers file for project1
+  - name: httprestart
+    service: name=httpd  state=started
+

@@ -1,0 +1,20 @@
+---
+# tasks file for fivemodules
+  - name: Ansible register variable basic example
+    shell: "find *.html"
+    args:
+      chdir: /var/www/html
+    register: find_htmlfiles
+  - debug:
+      var: find_htmlfiles
+# Include other task yaml file
+  - name: include default step variables at task level
+    include: variable.yaml
+# Template
+  - name: Copy HTML Content to a file
+    template: src=index.j2 dest=/var/www/html/index.html
+    notify: serverrestart
+# LOOP
+  - command: echo {{ item }}
+    loop: [ 0, 2, 4, 6, 8, 10 ]
+    when: item > 5

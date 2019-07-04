@@ -1,0 +1,22 @@
+[web]
+#10.76.137.1 ansible_user=root ansible_password=iso*help myname=harish-host
+10.76.140.105 ansible_user=root ansible_password=iso*help
+#10.76.137.205 ansible_user=root ansible_password=iso*help
+
+[db]
+10.76.137.205 ansible_user=user1 ansible_password=user1
+
+[windows]
+13.233.119.65 ansible_user=Administrator ansible_password=WsgPP?V%&JWvp.AwfKcacQp@22I!8QF! ansible_connection=winrm ansible_winrm_transport=basic ansible_winrm_server_cert_validation=ignore
+
+#[web:vars]
+#myname=harish-vars
+#mycompany=hpe-vars
+#myage=10
+
+[common:children]
+db
+web
+
+
+

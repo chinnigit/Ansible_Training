@@ -1,0 +1,14 @@
+---
+- name: This is for eight steps exersise
+  vars:  
+    ansible_user: user1
+    ansible_password: user1
+  hosts: web
+  tasks:
+    - name: Install the httpd apps
+      yum: name=httpd
+      notify: restart
+  handlers:
+    - name: restart
+      service: name=httpd  state=started 
+...

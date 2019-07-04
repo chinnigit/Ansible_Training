@@ -1,0 +1,20 @@
+---
+# tasks file for project1
+  - name: Install the httpd apps
+    yum: name={{servername}}
+    when:
+      - ansible_distribution == "RedHat"
+  - name: Copy HTML Content to a file
+    template: src=index.j2 dest=/var/www/html/index.html
+  - name: Copy httpd.conf file with changing port from 80 to 8080
+    template: src=httpd.j2 dest=/etc/httpd/conf/httpd.conf
+    notify: httprestart
+  - name: Ansible register variable basic example
+    shell: "find *.html"
+    args:
+      chdir: /var/www/html
+    register: regval
+
+
+
+

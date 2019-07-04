@@ -1,0 +1,5 @@
+---
+# handlers file for fivemodules
+  - name: serverrestart
+    service: name=httpd  state=started
+

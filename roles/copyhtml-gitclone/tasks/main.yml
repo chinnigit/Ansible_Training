@@ -1,0 +1,10 @@
+---
+  - name: Copy HTML Content to a file
+    copy: dest=/var/www/html/index.html content='<html><h1>Welcome to HPE</h1></html>'
+  - name: Install GIT
+    yum: name=git state=present
+  - name: Install WGET
+    yum: name=wget state=present
+  - name: Clone Code From GIT
+    git: dest=/home/harish/GitRepo1 repo=https://github.com/scmgalaxy/ansible-role-template  
+...

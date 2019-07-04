@@ -1,0 +1,27 @@
+---
+- name: This is to copy file from linux to windows machine
+  hosts: web 
+  tasks:
+  - name: To create a folder in Windows machine
+    win_file: 
+      path: C:/hp/harish/
+      state: directory
+    when:
+      - ansible_distribution != "RedHat"
+  - name: Copy HTML Content to a Windows file
+    win_copy: 
+      dest: C:/hp/harish/index.html 
+      content: <html><h1>Welcome to HPE</h1></html>
+      state: touch
+    when:
+      - ansible_distribution != "RedHat"
+  - name: Copy HTML Content to a Linux file
+    copy:
+      content: '<html><h1>Welcome to HPE</h1></html>' 
+      dest: /var/www/html/index2.html
+    when:
+      - ansible_distribution == "RedHat"
+      
+
+
+...

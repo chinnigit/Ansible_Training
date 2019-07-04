@@ -1,0 +1,9 @@
+---
+- name: This is for loop
+  hosts: web
+
+  tasks:
+  - command: echo {{ item }}
+    loop: [ 0, 2, 4, 6, 8, 10 ]
+    when: item > 5
+...

@@ -1,0 +1,24 @@
+---
+- name: This is for eight steps exersise
+#  vars:  
+#    myname: harish-playbook
+#    mycompany: hpe-playbook
+#  vars_files:
+#   - "externalvarfile.yaml"
+#  vars_prompt:
+#    - name: myname
+#      private: no
+#      prompt: "what is your name?"
+#  hosts: all
+  hosts: web
+  tasks:
+  - name: Install the httpd apps
+    yum: name=httpd
+#  - name: include default step variables at task level
+#    include_vars: external_tasklevelfile.yaml
+  - debug:
+#      msg: System {{ myname }} has uuid {{ ansible_product_uuid }}
+#      var: myage
+#      var: myname
+      var: myname
+...

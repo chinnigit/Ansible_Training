@@ -1,0 +1,6 @@
+---
+# vars file for project1
+servername: httpd
+myname: harishhhhh
+listionport: 80
+

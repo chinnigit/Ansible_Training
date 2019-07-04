@@ -1,0 +1,20 @@
+---
+- name: This is to copy file from linux to windows machine
+  vars:  
+    ansible_user: Administrator
+    ansible_password: WsgPP?V%&JWvp.AwfKcacQp@22I!8QF!
+    ansible_connection: winrm
+    ansible_winrm_transport: basic
+    ansible_winrm_server_cert_validation: ignore
+  hosts: windows
+  tasks:
+  - name: To create a folder in Windows machine
+    win_file: 
+      path: c:/hp/harish/
+      state: directory
+  - name: Copy HTML Content to a file
+    win_copy: 
+      dest: c:/hp/harish/index.html 
+      content: <html><h1>Welcome to HPE</h1></html>
+      state: touch
+...

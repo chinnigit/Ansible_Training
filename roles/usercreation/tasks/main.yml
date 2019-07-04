@@ -1,0 +1,7 @@
+---
+  - name: Create a Group
+    group: name=deploy
+  - name: Create a User and assign to Group
+    user: name=deploy-user group=deploy shell=/bin/bash state=present
+
+...

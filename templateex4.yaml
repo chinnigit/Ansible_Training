@@ -1,0 +1,7 @@
+---
+- name: This is for eight steps exersise
+  hosts: web
+  tasks:
+  - name: Copy HTML Content to a file
+    template: src=/root/index.j2 dest=/var/www/html/index.html
+...
